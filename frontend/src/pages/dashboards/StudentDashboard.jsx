@@ -164,22 +164,29 @@ const StudentDashboard = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
-      <nav className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
-        <div className="flex items-center gap-3 text-blue-600 dark:text-blue-500 font-extrabold text-xl tracking-tight">
-          <span>{settings.student_header}</span>
+      <nav className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 md:px-6 py-3 md:py-4 flex justify-between items-center sticky top-0 z-50">
+        <div className="flex items-center gap-2 md:gap-3 text-blue-600 dark:text-blue-500 font-extrabold text-lg md:text-xl tracking-tight truncate mr-2">
+          <span className="truncate">{settings.student_header}</span>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4 shrink-0">
           <button 
             onClick={() => setIsProfileOpen(true)}
-            className="text-right border-r border-slate-200 dark:border-slate-700 pr-4 mr-1 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-xl transition-colors group cursor-pointer"
+            className="flex items-center justify-center text-right md:border-r border-slate-200 dark:border-slate-700 md:pr-4 md:mr-1 hover:bg-slate-100 dark:hover:bg-slate-800 p-1.5 md:p-2 rounded-xl transition-colors group cursor-pointer"
             title="Buka Profil & Keamanan"
           >
-            <p className="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{user?.nama}</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">{user?.nomor_induk}</p>
+            <div className="hidden md:block">
+              <p className="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{user?.nama}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">{user?.nomor_induk}</p>
+            </div>
+            <div className="md:hidden w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
+              {user?.nama?.charAt(0)?.toUpperCase()}
+            </div>
           </button>
-          <ThemeToggle />
-          <button onClick={handleLogout} className="p-2 text-slate-400 hover:text-red-500 dark:hover:text-red-400 transition-colors bg-slate-100 hover:bg-red-50 dark:bg-slate-800 dark:hover:bg-red-900/30 rounded-xl">
-            <LogOut size={20} />
+          <div className="scale-90 md:scale-100">
+            <ThemeToggle />
+          </div>
+          <button onClick={handleLogout} className="p-2 text-red-600 bg-red-50 hover:bg-red-100 dark:bg-red-900/30 dark:hover:bg-red-900/50 rounded-xl transition-colors">
+            <LogOut size={18} className="md:w-5 md:h-5" />
           </button>
         </div>
       </nav>
