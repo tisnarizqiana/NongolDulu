@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/AuthContext';
-import { Building, BellRing, LogOut, CheckCircle, Clock, Download, Sparkles, FolderX, FileText } from 'lucide-react';
+import { Building, BellRing, LogOut, CheckCircle, Clock, Download, Sparkles, FolderX, FileText, CalendarDays } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import ThemeToggle from '../../components/ThemeToggle';
 import UserProfile from '../../components/UserProfile';
