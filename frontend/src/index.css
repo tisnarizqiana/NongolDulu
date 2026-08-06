@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Poppins", sans-serif;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  @apply bg-slate-50 text-slate-900 antialiased transition-colors duration-300;
+}
+
+/* Dark mode fallback for the whole page */
+html.dark body {
+  @apply bg-slate-900 text-slate-100;
+}
