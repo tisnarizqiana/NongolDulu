@@ -22,7 +22,7 @@ const AdminClasses = () => {
   const [selectedStudentToAdd, setSelectedStudentToAdd] = useState('');
   const [modalSearchQuery, setModalSearchQuery] = useState('');
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const fetchClasses = async () => {
     try {

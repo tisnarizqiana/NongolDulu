@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+      const API_URL = import.meta.env.VITE_API_URL;
       await axios.post(`${API_URL}/logout`);
     } catch (err) {
       console.log('Logout error', err);

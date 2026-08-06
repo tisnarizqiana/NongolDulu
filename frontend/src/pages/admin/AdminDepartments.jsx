@@ -13,7 +13,7 @@ const AdminDepartments = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const confirm = useConfirm();
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const fetchDepts = async () => {
     try {

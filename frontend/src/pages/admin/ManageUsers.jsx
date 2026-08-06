@@ -17,7 +17,7 @@ const ManageUsers = () => {
   const [editingUser, setEditingUser] = useState(null);
   const [departments, setDepartments] = useState([]);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+  const API_URL = import.meta.env.VITE_API_URL;
   const displayRole = role ? role.charAt(0).toUpperCase() + role.slice(1) : 'Pengguna';
 
   const fetchUsers = async () => {

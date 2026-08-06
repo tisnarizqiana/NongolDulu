@@ -18,7 +18,7 @@ const UserProfile = ({ isOpen, onClose }) => {
   const [loadingOtp, setLoadingOtp] = useState(false);
   const [loadingPassword, setLoadingPassword] = useState(false);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+  const API_URL = import.meta.env.VITE_API_URL;
 
   if (!isOpen) return null;
 

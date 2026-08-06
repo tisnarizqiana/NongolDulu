@@ -29,7 +29,7 @@ const AdminDashboard = () => {
   
   // Use static date for greeting/day calculations so the whole page doesn't re-render every second
   const currentTime = new Date();
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchStatsAndFeed = async () => {

@@ -5,7 +5,7 @@ import { Clock, Map, LayoutDashboard } from 'lucide-react';
 const Dashboard = () => {
   const [attendances, setAttendances] = useState([]);
   const [loading, setLoading] = useState(true);
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchAttendances = async () => {

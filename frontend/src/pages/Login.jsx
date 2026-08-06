@@ -15,7 +15,7 @@ const Login = () => {
   const { login } = useAuth();
   const { settings, getLogoUrl } = useSettings();
   const navigate = useNavigate();
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleLogin = async (e) => {
     e.preventDefault();
