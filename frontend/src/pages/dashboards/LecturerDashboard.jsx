@@ -566,26 +566,26 @@ const LecturerDashboard = () => {
       <main className="max-w-7xl mx-auto p-6 space-y-8 animate-in fade-in duration-500">
         
         {/* Hero Welcome Banner */}
-        <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-500 rounded-[2rem] p-10 shadow-lg text-white">
+        <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-500 rounded-[2rem] p-6 md:p-10 shadow-lg text-white">
           <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-20 w-40 h-40 bg-blue-300 opacity-20 rounded-full blur-2xl"></div>
           
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
               <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
-                {getGreeting()}, {user?.nama || 'Dosen'}! <Sparkles className="inline-block w-8 h-8 md:w-10 md:h-10 text-emerald-300 animate-pulse" />
+                {getGreeting()}, {user?.nama || 'Dosen'}! <Sparkles className="inline-block text-emerald-300 animate-pulse md:w-10 md:h-10" size={32} />
               </h1>
-              <p className="text-emerald-50 text-sm md:text-base font-medium max-w-2xl leading-relaxed opacity-90">
+              <p className="text-emerald-50 text-base md:text-lg font-medium max-w-2xl leading-relaxed opacity-90 mt-2">
                 {settings.lecturer_subtitle}
               </p>
             </div>
-            <div className="bg-white/20 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center gap-4 shadow-inner">
-              <div className="bg-white/20 p-4 rounded-2xl shadow-inner">
-                <Clock className="text-white" size={28} />
+            <div className="bg-white/20 backdrop-blur-md border border-white/20 rounded-2xl md:rounded-3xl p-4 md:p-5 flex items-center gap-3 md:gap-5 shadow-inner w-full md:w-auto">
+              <div className="bg-white/20 p-3 md:p-4 rounded-xl md:rounded-2xl shadow-inner shrink-0">
+                <Clock className="text-white md:w-7 md:h-7" size={24} />
               </div>
-              <div>
-                <p className="text-emerald-100 text-sm font-medium">Waktu Server</p>
-                <p className="text-3xl font-black font-mono drop-shadow-md">
+              <div className="min-w-0">
+                <p className="text-emerald-100 text-xs md:text-sm font-medium truncate">Waktu Server</p>
+                <p className="text-2xl md:text-3xl font-black font-mono drop-shadow-md truncate">
                   <LiveClock />
                 </p>
               </div>

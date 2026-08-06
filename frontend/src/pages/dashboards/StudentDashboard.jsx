@@ -194,7 +194,7 @@ const StudentDashboard = () => {
       <main className="max-w-7xl mx-auto p-6 space-y-8 animate-in fade-in duration-500">
         
         {/* Hero Welcome Banner */}
-        <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-500 dark:from-blue-900 dark:via-indigo-900 dark:to-sky-800 rounded-[2.5rem] p-10 shadow-xl text-white border border-blue-500/20">
+        <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-sky-500 rounded-[2rem] p-6 md:p-10 shadow-lg text-white">
           <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-20 w-40 h-40 bg-blue-300 opacity-20 rounded-full blur-2xl"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
@@ -205,20 +205,20 @@ const StudentDashboard = () => {
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 Terkoneksi ke Sistem
               </div>
-              <h1 className="text-4xl md:text-5xl font-extrabold mb-3 tracking-tight flex items-center gap-3 text-white drop-shadow-sm">
-                {getGreeting()}, {user?.nama ? user.nama.split(' ')[0] : settings.student_label}! <Sparkles className="text-blue-200" size={36} />
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-3 tracking-tight flex items-center gap-3 text-white drop-shadow-sm">
+                {getGreeting()}, {user?.nama ? user.nama.split(' ')[0] : settings.student_label}! <Sparkles className="text-blue-200 md:w-9 md:h-9" size={32} />
               </h1>
-              <p className="text-blue-100 text-lg max-w-xl leading-relaxed font-medium">
+              <p className="text-blue-100 text-base md:text-lg max-w-xl leading-relaxed font-medium">
                 {settings.student_subtitle}
               </p>
             </div>
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-5 flex items-center gap-5 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
-              <div className="bg-white/20 p-4 rounded-2xl shadow-inner">
-                <Clock className="text-white" size={28} />
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl md:rounded-3xl p-4 md:p-5 flex items-center gap-3 md:gap-5 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] w-full md:w-auto">
+              <div className="bg-white/20 p-3 md:p-4 rounded-xl md:rounded-2xl shadow-inner shrink-0">
+                <Clock className="text-white md:w-7 md:h-7" size={24} />
               </div>
-              <div>
-                <p className="text-blue-100 text-sm font-medium">Waktu Server</p>
-                <p className="text-3xl font-black font-mono drop-shadow-md">
+              <div className="min-w-0">
+                <p className="text-blue-100 text-xs md:text-sm font-medium truncate">Waktu Server</p>
+                <p className="text-2xl md:text-3xl font-black font-mono drop-shadow-md truncate">
                   <LiveClock />
                 </p>
               </div>
@@ -230,15 +230,15 @@ const StudentDashboard = () => {
         
         {/* Kolom Jadwal */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="bg-white dark:bg-slate-800/80 rounded-3xl p-8 shadow-sm border border-slate-200 dark:border-slate-700/50">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-3">
-                <div className="p-2 bg-blue-100 dark:bg-blue-500/20 rounded-xl text-blue-600 dark:text-blue-400">
+          <div className="bg-white dark:bg-slate-800/80 rounded-[2rem] p-5 md:p-8 shadow-sm border border-slate-200 dark:border-slate-700/50">
+            <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-6 md:mb-8">
+              <h2 className="text-lg md:text-xl font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-3 leading-tight">
+                <div className="p-2 bg-blue-100 dark:bg-blue-500/20 rounded-xl text-blue-600 dark:text-blue-400 shrink-0">
                   <CalendarDays size={20} />
                 </div>
                 {settings.schedule_label} Saya
               </h2>
-              <button onClick={() => { if(Notification.permission !== "granted") Notification.requestPermission() }} className="text-xs bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-xl font-bold flex items-center gap-2 transition-colors">
+              <button onClick={() => { if(Notification.permission !== "granted") Notification.requestPermission() }} className="text-xs bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-xl font-bold flex items-center justify-center gap-2 transition-colors self-start sm:self-auto shrink-0 w-max">
                 <BellRing size={16} className="text-blue-500 dark:text-blue-400" /> Aktifkan Notif
               </button>
             </div>
@@ -259,14 +259,14 @@ const StudentDashboard = () => {
               <div className="grid gap-4">
                 {schedules.map(sched => (
                   <div key={sched.id} className="group border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-blue-300 dark:hover:border-blue-500/50 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all hover:shadow-md">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center font-bold text-lg border border-blue-100 dark:border-blue-800/50 group-hover:scale-110 transition-transform">
+                    <div className="flex items-start md:items-center gap-4 w-full">
+                      <div className="w-12 h-12 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center font-bold text-lg border border-blue-100 dark:border-blue-800/50 group-hover:scale-110 transition-transform shrink-0 mt-1 md:mt-0">
                         {sched.nama_mata_kuliah.charAt(0)}
                       </div>
-                      <div>
-                        <h3 className="font-extrabold text-slate-800 dark:text-slate-100 text-lg">{sched.nama_mata_kuliah}</h3>
-                        <p className="text-sm font-medium text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mt-0.5">
-                          <Clock size={14} /> {sched.hari}, <span className="font-mono bg-slate-100 dark:bg-slate-700 px-1.5 rounded">{sched.jam_mulai}</span> - <span className="font-mono bg-slate-100 dark:bg-slate-700 px-1.5 rounded">{sched.jam_selesai}</span>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="font-extrabold text-slate-800 dark:text-slate-100 text-base md:text-lg leading-tight md:leading-normal mb-1 md:mb-0 break-words">{sched.nama_mata_kuliah}</h3>
+                        <p className="text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400 flex flex-wrap items-center gap-1.5 mt-0.5">
+                          <Clock size={14} className="shrink-0" /> {sched.hari}, <span className="font-mono bg-slate-100 dark:bg-slate-700 px-1.5 rounded">{sched.jam_mulai}</span> - <span className="font-mono bg-slate-100 dark:bg-slate-700 px-1.5 rounded">{sched.jam_selesai}</span>
                         </p>
                       </div>
                     </div>
