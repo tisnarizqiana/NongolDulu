@@ -111,10 +111,8 @@ const AdminSettings = () => {
     
     setIsUploading(true);
     try {
-      const token = localStorage.getItem('token');
       const response = await axios.post(`${API_URL}/settings/logo`, uploadData, {
         headers: { 
-          'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'
         }
       });
@@ -145,11 +143,7 @@ const AdminSettings = () => {
     
     setIsSaving(true);
     try {
-      const token = localStorage.getItem('token');
-      await axios.put(`${API_URL}/settings`, formData, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      
+      await axios.put(`${API_URL}/settings`, formData);
       toast.success('Pengaturan berhasil diperbarui!');
       await fetchSettings();
       setIsDirty(false);
