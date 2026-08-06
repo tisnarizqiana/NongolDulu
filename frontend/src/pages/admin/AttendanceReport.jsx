@@ -213,7 +213,7 @@ const AttendanceReport = () => {
           <select 
             value={filterDate}
             onChange={(e) => setFilterDate(e.target.value)}
-            className="flex-1 md:flex-none px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-200"
+            className="w-full md:w-48 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-200"
           >
             <option value="today">Hari Ini</option>
             <option value="week">Minggu Ini</option>
@@ -223,7 +223,7 @@ const AttendanceReport = () => {
           <select 
             value={filterRole}
             onChange={(e) => setFilterRole(e.target.value)}
-            className="flex-1 md:flex-none px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-200"
+            className="w-full md:w-48 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50 dark:bg-slate-800 font-bold text-slate-700 dark:text-slate-200"
           >
             <option value="all">Semua Peran</option>
             <option value="mahasiswa">Mahasiswa</option>

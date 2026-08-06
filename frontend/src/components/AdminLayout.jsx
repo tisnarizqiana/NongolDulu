@@ -6,13 +6,14 @@ import ThemeToggle from './ThemeToggle';
 import { useSettings } from '../context/SettingsContext';
 import UserProfile from './UserProfile';
 
-const AdminSidebarItem = ({ to, icon: Icon, children }) => {
+const AdminSidebarItem = ({ to, icon: Icon, children, onClick }) => {
   const location = useLocation();
   const isActive = location.pathname === to;
   
   return (
     <Link 
       to={to} 
+      onClick={onClick}
       className={`flex items-center gap-4 px-5 py-3.5 rounded-full font-medium transition-all mb-2 ${
         isActive 
           ? 'bg-blue-600 text-white shadow-md' 
@@ -49,8 +50,8 @@ const AdminLayout = () => {
       
       {/* Mobile Top Navigation */}
       <div className="md:hidden fixed top-0 left-0 right-0 h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 z-50 flex justify-between items-center px-4">
-        <div className="flex items-center gap-3 text-blue-600 font-bold text-lg tracking-wide">
-          <img src={getLogoUrl()} alt="Logo NONGOL" className="w-7 h-7 object-contain drop-shadow-sm" />
+        <div className="flex items-center gap-3 text-blue-600 font-black text-xl tracking-wide">
+          <img src={getLogoUrl()} alt="Logo NONGOL" className="w-9 h-9 object-contain drop-shadow-sm" />
           <span className="whitespace-nowrap">{settings.app_name}</span>
         </div>
         <div className="flex items-center gap-4">
@@ -85,24 +86,24 @@ const AdminLayout = () => {
         
         <div className="p-5 flex-grow overflow-y-auto custom-scrollbar">
           <SidebarGroup title="Utama" />
-          <AdminSidebarItem to="/admin" icon={LayoutDashboard}>Dashboard</AdminSidebarItem>
-          <AdminSidebarItem to="/admin/kiosk" icon={ScanFace}>Kiosk Absensi</AdminSidebarItem>
-          <AdminSidebarItem to="/admin/attendances" icon={CalendarDays}>Laporan Absensi</AdminSidebarItem>
+          <AdminSidebarItem onClick={() => setSidebarOpen(false)} to="/admin" icon={LayoutDashboard}>Dashboard</AdminSidebarItem>
+          <AdminSidebarItem onClick={() => setSidebarOpen(false)} to="/admin/kiosk" icon={ScanFace}>Kiosk Absensi</AdminSidebarItem>
+          <AdminSidebarItem onClick={() => setSidebarOpen(false)} to="/admin/attendances" icon={CalendarDays}>Laporan Absensi</AdminSidebarItem>
           
           <SidebarGroup title="Akademik" />
-          <AdminSidebarItem to="/admin/departments" icon={Building}>{settings.department_label}</AdminSidebarItem>
-          <AdminSidebarItem to="/admin/classes" icon={BookOpen}>Kelas</AdminSidebarItem>
-          <AdminSidebarItem to="/admin/schedules" icon={Clock}>Jadwal</AdminSidebarItem>
+          <AdminSidebarItem onClick={() => setSidebarOpen(false)} to="/admin/departments" icon={Building}>{settings.department_label}</AdminSidebarItem>
+          <AdminSidebarItem onClick={() => setSidebarOpen(false)} to="/admin/classes" icon={BookOpen}>Kelas</AdminSidebarItem>
+          <AdminSidebarItem onClick={() => setSidebarOpen(false)} to="/admin/schedules" icon={Clock}>Jadwal</AdminSidebarItem>
           
           <SidebarGroup title="Pengguna" />
-          <AdminSidebarItem to="/admin/enroll" icon={UserPlus}>Registrasi</AdminSidebarItem>
-          <AdminSidebarItem to="/admin/users/mahasiswa" icon={Users}>{settings.student_label}</AdminSidebarItem>
-          <AdminSidebarItem to="/admin/users/dosen" icon={UserCheck}>{settings.lecturer_label}</AdminSidebarItem>
-          <AdminSidebarItem to="/admin/users/staff" icon={UserCog}>{settings.staff_label}</AdminSidebarItem>
+          <AdminSidebarItem onClick={() => setSidebarOpen(false)} to="/admin/enroll" icon={UserPlus}>Registrasi</AdminSidebarItem>
+          <AdminSidebarItem onClick={() => setSidebarOpen(false)} to="/admin/users/mahasiswa" icon={Users}>{settings.student_label}</AdminSidebarItem>
+          <AdminSidebarItem onClick={() => setSidebarOpen(false)} to="/admin/users/dosen" icon={UserCheck}>{settings.lecturer_label}</AdminSidebarItem>
+          <AdminSidebarItem onClick={() => setSidebarOpen(false)} to="/admin/users/staff" icon={UserCog}>{settings.staff_label}</AdminSidebarItem>
           
           <div className="my-4 border-t border-slate-200 dark:border-slate-800"></div>
           <SidebarGroup title="Sistem" />
-          <AdminSidebarItem to="/admin/settings" icon={SettingsIcon}>Pengaturan Sistem</AdminSidebarItem>
+          <AdminSidebarItem onClick={() => setSidebarOpen(false)} to="/admin/settings" icon={SettingsIcon}>Pengaturan Sistem</AdminSidebarItem>
         </div>
 
         <div className="p-6">
